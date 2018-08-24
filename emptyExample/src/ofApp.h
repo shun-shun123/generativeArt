@@ -22,4 +22,5 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
     ofColor color = ofColor(255, 255, 255, 255);
+    ofVec2f middle;
 };

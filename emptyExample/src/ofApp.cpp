@@ -2,12 +2,25 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofSetBackgroundAuto(false);
+    ofBackground(0);
+    ofSetFrameRate(60);
+    middle = ofVec2f(ofGetWidth() / 2, ofGetHeight() / 2);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    for (int i = 0; i < 10; i++) {
+        ofVec2f pos = ofVec2f(ofRandomWidth(), ofRandomHeight());
+        float dist = pos.distance(middle);
+        if (dist <= 200) {
+            ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
+        } else {
+            ofSetColor(ofRandom(255));
+        }
+        ofDrawCircle(pos, 5);
+        cout << "FrameRate" << ofGetFrameRate() << endl;
+    }
 }
 
 //--------------------------------------------------------------
