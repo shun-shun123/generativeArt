@@ -1,5 +1,6 @@
 .DS_Store
 emptyExample/.DS_Store
 emptyExample/bin/emptyExampleDebug.app/*
+emptyExample/emptyExample.xcodeproj/project.xcworkspace/xcuserdata/saitoushunsuke.xcuserdatad/UserInterfaceState.xcuserstate
 generativeCircle/.DS_Store
 content.txt
