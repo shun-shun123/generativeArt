@@ -1,0 +1,6 @@
+<group>
+	<alpha>100</alpha>
+	<ballNum>1000</ballNum>
+	<diamiterRate>0.1</diamiterRate>
+	<hueRate>0.01</hueRate>
+</group>
