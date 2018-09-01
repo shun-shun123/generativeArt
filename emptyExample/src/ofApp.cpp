@@ -14,7 +14,7 @@ void ofApp::update(){
         ofVec2f pos = ofVec2f(ofRandomWidth(), ofRandomHeight());
         float dist = pos.distance(middle);
         if (dist <= 200) {
-            ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
+            ofSetColor(ofColor::fromHsb(ofRandom(255), 255, 255));
         } else {
             ofSetColor(ofRandom(255));
         }
