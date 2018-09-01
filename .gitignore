@@ -1,4 +1,5 @@
 .DS_Store
 emptyExample/.DS_Store
+emptyExample/bin/emptyExampleDebug.app/*
 generativeCircle/.DS_Store
 content.txt
