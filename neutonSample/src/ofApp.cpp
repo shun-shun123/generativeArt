@@ -3,40 +3,28 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     init();
-    acceleration = force * mass;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    velocity += acceleration;
-    velocity *= ofVec2f(1.0, 1.0) - friction;
-    direction = velocity;
-    direction.normalize();
-    location += velocity;
-    if (location.x < 0 || location.x > ofGetWidth()) {
-        velocity.x *= -1;
+    for (int i = 0; i < NUM; i++) {
+        particles[i].update();
+        particles[i].bounceOffWalls();
     }
-    if (location.y < 0 || location.y > ofGetHeight()) {
-        velocity.y *= -1;
-    }
-    acceleration = ofVec2f(0, 0);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     fade(bgAlpha);
-    ofSetColor(255, 60);
-    ofDrawCircle(location, 20);
+    for (int i = 0; i < NUM; i++) {
+        particles[i].draw(alpha);
+    }
     gui.draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    switch (key) {
-        case 'r':
-            acceleration = (direction * ofRandom(1.0, 4.0)) * mass;
-            break;
-    }
+
 }
 
 //--------------------------------------------------------------
@@ -95,7 +83,7 @@ void ofApp::init() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(false);
     gui.setup();
-    gui.add(mass.setup("mass", 3.0, 1.0, 5.0));
+    gui.add(alpha.setup("alpha", 50, 10, 100));
     gui.add(bgAlpha.setup("bgAlpha", 10, 1, 100));
 }
 

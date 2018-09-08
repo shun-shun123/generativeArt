@@ -2,6 +2,9 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
+#include "Particle.hpp"
+
+#define NUM 1000
 
 class ofApp : public ofBaseApp{
 
@@ -23,14 +26,9 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     void init();
     void fade(int alpha);
-		
-    ofVec2f force = ofVec2f(3.0, 2.0);
-    ofVec2f acceleration;
-    ofVec2f location = ofVec2f(0.0, 0.0);
-    ofVec2f velocity = ofVec2f(0.0, 0.0);
-    ofVec2f friction = ofVec2f(0.02, 0.02);
-    ofVec2f direction;
-    ofxFloatSlider mass;
+    
+    Particle particles[NUM];
+    ofxIntSlider alpha;
     ofxIntSlider bgAlpha;
     ofxPanel gui;
 };
