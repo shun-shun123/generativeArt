@@ -28,6 +28,8 @@ class ofApp : public ofBaseApp{
     ofVec2f acceleration;
     ofVec2f location = ofVec2f(0.0, 0.0);
     ofVec2f velocity = ofVec2f(0.0, 0.0);
+    ofVec2f friction = ofVec2f(0.02, 0.02);
+    ofVec2f direction;
     ofxFloatSlider mass;
     ofxIntSlider bgAlpha;
     ofxPanel gui;
