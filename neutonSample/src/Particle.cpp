@@ -17,7 +17,8 @@ Particle::Particle() {
     location = ofVec2f(ofGetWidth() / 2, ofGetHeight() / 2);
     velocity = ofVec2f(0.0, 0.0);
     acceleration = ofVec2f(posX, posY);
-    gravity = ofVec2f(0.0, ofRandom(0.05, 0.2));
+    gravity = ofVec2f(0.0, 0.0);
+    G = 1.0;
 }
 
 void Particle::update() {
@@ -63,4 +64,19 @@ void Particle::throughWalls() {
         location.y = ofGetHeight();
         velocity.y *= -1;
     }
+}
+
+void Particle::addForce(ofVec2f force) {
+    force /= mass;
+    acceleration += force;
+}
+
+void Particle::attract(ofVec2f center, float _mass, float min, float max) {
+    float distance = center.distance(location);
+    distance = ofMap(distance, min, max, min, max);
+    float strength = G * (mass * _mass) / (distance * distance);
+    ofVec2f force = center - location;
+    force.normalize();
+    force *= strength;
+    addForce(force);
 }

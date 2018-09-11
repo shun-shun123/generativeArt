@@ -39,7 +39,9 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    for (int i = 0; i < NUM; i++) {
+        particles[i].attract(ofVec2f(x, y), 500, 5, 300);
+    }
 }
 
 //--------------------------------------------------------------
@@ -49,7 +51,12 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+//    for (int i = 0; i < NUM; i++) {
+//        float angle = ofRandom(PI * 2.0);
+//        float length = ofRandom(20);
+//        ofVec2f force = ofVec2f(cos(angle) * length, sin(angle) * length);
+//        particles[i].addForce(force);
+//    }
 }
 
 //--------------------------------------------------------------

@@ -21,12 +21,15 @@ class Particle {
         float mass;
         ofVec2f friction;
         float radius;
+        float G;
     public :
         Particle();
         void update();
         void draw(int alpha);
         void bounceOffWalls();
         void throughWalls();
+        void addForce(ofVec2f force);
+        void attract(ofVec2f center, float _mass, float min, float max);
     
 };
 #endif /* Particle_hpp */
